@@ -15,7 +15,7 @@ server = 'irc.chat.twitch.tv'
 port = 6667
 nickname = 'learndatasci'
 token = os.environ.get("OAUTH_TOKEN")
-channel = '#xqc'
+channel = '#adinross'
 
 sock.connect((server, port))
 sock.send(f"PASS {token}\n".encode('utf-8'))
@@ -33,10 +33,11 @@ while True:
     
     elif len(resp) > 0:
 
-        message = resp.split("#xqc :")[-1].strip().split(" ")
-        for word in message:
-            logger.info(demojize(message))
-        # logger.info(demojize(message))
+        message = resp.split(f"{channel} :")[-1].strip()
+        # for word in message:
+        #     logger.info(demojize(message))
+        logger.info(demojize(message))
+        # logger.info(demojize(resp))
         
      
   
